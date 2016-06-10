@@ -1,0 +1,58 @@
+// ------------------------------------------------
+// Mixins
+// ------------------------------------------------
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg otf) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+@mixin line {
+  display: inline-block;
+  width: $button-size;
+  height: $button-size/7;
+  background: $logo_color;
+  border-radius: $button-size/14;
+  transition: $transition;
+}
+
+@mixin transform($transform_property){
+	-ms-transform: $transform_property; /* IE 9 */
+    -webkit-transform: $transform_property; /* Safari */
+    -moz-transform: $transform_property; /* Firefox */
+    transform: $transform_property; /* Standard syntax */
+}
+
+@mixin transition($transition_property...){
+	-webkit-transition: $transition_property;
+	-moz-transition: $transition_property;
+	-o-transition: $transition_property;
+	transition: $transition_property;
+}

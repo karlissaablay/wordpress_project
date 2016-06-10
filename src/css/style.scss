@@ -1,0 +1,38 @@
+// ------------------------------------------------
+// Main CSS Stylesheet
+// ------------------------------------------------
+@import "partials/reset";
+@import "partials/base";
+@import "partials/general";
+@import "partials/header";
+@import "partials/blog-post";
+@import "partials/footer";
+
+@import "partials/masterslider-fix";
+
+
+// ---------------------------
+// Tags
+// ---------------------------
+body{
+    font-size: $body-font-size;
+    color: #333;
+
+    letter-spacing: $body-letter-spacing;
+}
+
+a{
+  @include transition( all 0.25s ease);
+}
+
+// ---------------------------
+// Classes
+// ---------------------------
+.content{
+  float: right;
+  width: calc(100vw - 51px);
+}
+
+.row{
+  padding: 20px;
+}
