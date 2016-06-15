@@ -31,8 +31,20 @@ a{
 .content{
   float: right;
   width: calc(100vw - 51px);
+
+  .row{
+    padding: 0px;
+  }
 }
 
 .row{
   padding: 20px;
+}
+// ---------------------------
+// MEDIA QUERIES
+// ---------------------------
+@media (min-width: 992px){
+  .container{
+    width: 100%!important;
+  }
 }

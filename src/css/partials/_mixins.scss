@@ -56,3 +56,10 @@
 	-o-transition: $transition_property;
 	transition: $transition_property;
 }
+
+@mixin transform-origin($transform_origin_property){
+	-webkit-transform-origin: $transform_origin_property;
+	-moz-transform-origin: $transform_origin_property;
+	-o-transform-origin: $transform_origin_property;
+	transform-origin: $transform_origin_property;
+}

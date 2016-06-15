@@ -34,12 +34,13 @@ Tags: bootstrap -->
       <?php get_header(); ?>
 
       <div class="content">
+        <?php if(is_home() && function_exists(masterslider) ){ ?>
         <div class="row">
           <div class="col-md-8">
-            <?php if(is_home() && function_exists(masterslider) ){ masterslider(1); } ?>
+            <?php masterslider(1); ?>
           </div>
         </div>
-
+      <?php } else { ?>
         <div class="container">
           <div class="row">
               <?php
@@ -49,6 +50,9 @@ Tags: bootstrap -->
               ?>
           </div>
         </div>
+      <?php } ?>
+
+
 
       </div>
 

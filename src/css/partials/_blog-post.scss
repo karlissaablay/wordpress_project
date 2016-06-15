@@ -1,16 +1,55 @@
 .blog-post{
 
+    width: 100%;
+
     .blog-image{
-      float: left;
+      // float: left;
     }
 
     .blog-text{
-      float: right;
+      // float: right;
+      position: absolute;
+      right: -50%;
       background: $light-gray;
       width: 50%;
-      height: 100%;
+      height: 100vh;
+      padding: 20px;
+
+      @include transition(all 0.75s ease-in);
+
+      .blog-text-content{
+        max-width: 450px;
+        margin: 0 auto;
+
+        h2{
+          text-align: center;
+        }
+      }
+      &.open{
+        right: 0;
+      }
+
     }
 
+    .master-slider-parent{
+      position: absolute!important;
+      z-index: -1;
+      top: 0px;
+    }
 
+    .ms-bullets{
+      left: 0px;
+    }
+
+    .ms-view,
+    .ms-slide .ms-slide-bgcont, .ms-slide .ms-slide-bgvideocont{
+      height: 100vh!important;
+
+    }
+
+    .ms-slide .ms-slide-bgcont img{
+      height: 100vh!important;
+      width: auto!important;
+    }
 
 }
